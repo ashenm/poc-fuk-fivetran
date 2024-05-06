@@ -1,0 +1,25 @@
+{
+  "name": "mixpanel-canonicalize-events",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "functions/src/mixpanel/canonicalize-events/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/functions/mixpanel/canonicalize-events",
+        "main": "functions/src/mixpanel/canonicalize-events/src/index.ts",
+        "tsConfig": "functions/src/mixpanel/canonicalize-events/tsconfig.json"
+      }
+    },
+    "package": {
+      "dependsOn": ["build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ts-node tools/scripts/package.ts --source=functions/mixpanel/canonicalize-events"
+      }
+    }
+  },
+  "tags": []
+}

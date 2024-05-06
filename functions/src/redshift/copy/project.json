@@ -1,0 +1,25 @@
+{
+  "name": "redshift-copy",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "functions/src/redshift/copy/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/functions/redshift/copy",
+        "main": "functions/src/redshift/copy/src/index.ts",
+        "tsConfig": "functions/src/redshift/copy/tsconfig.json"
+      }
+    },
+    "package": {
+      "dependsOn": ["build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ts-node tools/scripts/package.ts --source=functions/redshift/copy"
+      }
+    }
+  },
+  "tags": []
+}

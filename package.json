@@ -1,0 +1,28 @@
+{
+  "name": "poc-fuk-fivetran",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx nx run-many --target build",
+    "package": "npx nx run-many --target package"
+  },
+  "keywords": [],
+  "author": "Ashen Gunaratne <mail@ashenm.dev>",
+  "dependencies": {
+    "@ashenm/logger": "0.0.4",
+    "@aws-sdk/client-redshift-data": "3.569.0",
+    "@aws-sdk/client-s3": "3.568.0"
+  },
+  "devDependencies": {
+    "@nx/esbuild": "18.3.4",
+    "@types/archiver": "6.0.2",
+    "@types/aws-lambda": "8.10.137",
+    "@types/node": "20.12.8",
+    "@types/yargs": "17.0.32",
+    "archiver": "7.0.1",
+    "esbuild": "0.19.2",
+    "nx": "18.3.4",
+    "yargs": "17.7.2"
+  }
+}
