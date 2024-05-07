@@ -16,6 +16,7 @@ locals {
 }
 
 resource "aws_sqs_queue" "main" {
-  for_each = local.queues
-  name     = upper("${local.name_prefix}-${each.key}")
+  for_each                   = local.queues
+  name                       = upper("${local.name_prefix}-${each.key}")
+  visibility_timeout_seconds = 1800
 }
